@@ -17,7 +17,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "npm-run-all lint:* test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "deploy": "rm -rf dist docs && ember build -prod && mv dist docs"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
