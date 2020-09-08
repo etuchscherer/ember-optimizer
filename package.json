@@ -18,7 +18,8 @@
     "start": "ember serve -p=0",
     "test": "npm-run-all lint:* test:*",
     "test:ember": "ember test",
-    "deploy": "rm -rf dist docs && ember build -prod && mv dist docs && git commit -am 'redeploy' && git push origin gh-pages"
+    "predeploy": "rm -rf dist docs && ember build -prod && mv dist docs",
+    "deploy": "git add . && git commit -m 'redeploy' && git push origin gh-pages"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
