@@ -1,3 +1,28 @@
-<h1>This is the home page</h1>
+<div class="flex flex-col h-full">
+  <div class="bg-red-500 text-white">
+    <h1 class="text-center text-3xl">This is the home page</h1>
+  </div>
 
-{{outlet}}
+
+  <div class="flex flex-grow flex-row w-full">
+    <div class="flex-grow text-center self-center">
+      {{#if this.shouldShowLeftPane}}
+        <LeftPane />
+      {{/if}}
+    </div>
+    <div class="flex-grow text-center self-center">
+      {{#if this.shouldShowRightPane}}
+        <RightPane />
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="flex flex-shrink flex-row w-full">
+    <button class="m-auto my-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" type="button" {{ on "click" this.toggleLeftPane }}>Left Pane</button>
+    <button class="m-auto my-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" type="button" {{ on "click" this.toggleRightPane }}>Right Pane</button>
+  </div>
+
+
+
+  {{outlet}}
+</div>
